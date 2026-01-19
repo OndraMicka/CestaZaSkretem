@@ -1,0 +1,51 @@
+{
+  "Player": {
+    "health": 100,
+    "maxHelath": 100,
+    "Inventory": {
+      "size": 7,
+      "itemsID": [
+          "oldBandage","oldBandage", "oldAxe"
+      ]
+    },
+    "Enemies": [
+      {
+        "name": "",
+        "info": "",
+        "health": 0,
+        "Inventory": {
+          "size": 5,
+          "itemsID": []
+        }
+      },
+      {
+        "name": "",
+        "info": "",
+        "health": 0,
+        "Inventory": {
+          "size": 5,
+          "itemsID": []
+        }
+      },
+      {
+        "name": "",
+        "info": "",
+        "health": 0,
+        "Inventory": {
+          "size": 5,
+          "itemsID": []
+        }
+      },
+      {
+        "name": "",
+        "info": "",
+        "health": 0,
+        "Inventory": {
+          "size": 5,
+          "itemsID": []
+        }
+      }
+
+    ]
+  }
+}
