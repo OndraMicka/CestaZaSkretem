@@ -4,6 +4,7 @@ import characters.GameCharacter;
 
 public abstract class Item {
     private String name;
+    private String id;
     private String info;
     private int durability;
 

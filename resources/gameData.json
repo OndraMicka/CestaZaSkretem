@@ -1,0 +1,149 @@
+{
+  "items": [
+    {
+      "name": "zlaté jablko",
+      "id": "goldenApple",
+      "heal": 65,
+      "durability": 1
+    },
+    {
+      "name": "lektvar",
+      "id": "potion",
+      "heal": 45,
+      "durability": 1
+    },
+    {
+      "name": "obvaz",
+      "id": "bandage",
+      "heal": 30,
+      "durability": 1
+    },
+    {
+      "name": "lektvar štěstí",
+      "id": "potion2",
+      "heal": 100,
+      "durability": 1
+    },
+    {
+      "name": "kus obvazu",
+      "id": "oldBandage",
+      "heal": 25,
+      "durability": 1
+    },
+    {
+      "name": "meč",
+      "id": "sword",
+      "attack": 20,
+      "durability": 10
+    },
+    {
+      "name": "dýka",
+      "id": "dagger",
+      "attack": 17,
+      "durability": 10
+    },
+    {
+      "name": "palice",
+      "id": "mace",
+      "attack": 25,
+      "durability": 4
+    },
+    {
+      "name": "luk",
+      "id": "bow",
+      "attack": 30,
+      "durability": 12
+    },
+    {
+      "name": "kouzelná hůlka",
+      "id": "magicHulk",
+      "attack": 50,
+      "durability": 3
+    },
+    {
+      "name": "stříbrný meč",
+      "id": "silverSword",
+      "attack": 5,
+      "durability": 3
+    },
+    {
+      "name": "zrezlá sekera",
+      "id": "OldAxe",
+      "attack": 15,
+      "durability": 5
+    }
+  ],
+  "Player": {
+    "health": 100,
+    "maxHelath": 100,
+    "inventoryCapacity": 7,
+    "itemsID": [
+      "oldBandage",
+      "oldBandage",
+      "oldAxe"
+    ]
+  },
+  "Enemies": [
+    {
+      "name": "Kostlivec",
+      "info": "",
+      "health": 100,
+      "inventoryCapacity": 5,
+      "itemsID": [
+        "bandage",
+        "bow"
+      ]
+    },
+    {
+      "name": "Čarodějnice",
+      "info": "",
+      "health": 90,
+      "inventoryCapacity": 5,
+      "itemsID": [
+        "potion",
+        "potion",
+        "magicHulk"
+      ]
+    },
+    {
+      "name": "Bezhlavý rytíř",
+      "info": "",
+      "health": 120,
+      "inventoryCapacity": 5,
+      "itemsID": [
+        "sword",
+        "bandage"
+      ]
+    },
+    {
+      "name": "Skřet",
+      "info": "",
+      "health": 200,
+      "inventoryCapacity": 5,
+      "itemsID": [
+        "bandage",
+        "potion",
+        "mace",
+        "sword"
+      ]
+    }
+  ],
+  "fightRooms": [
+    {
+      "info": "",
+      "enemyName": "Kostlivec"
+    },
+    {
+      "info": "",
+      "enemyName": "Čarodějnice"
+    },
+    {
+      "info": "",
+      "enemyName": "Bezhlavý rytíř"
+    },
+    {
+      "info": "",
+      "enemyName": "Skřet"
+    }
+  ]
+}
