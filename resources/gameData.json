@@ -2,80 +2,92 @@
   "items": [
     {
       "name": "zlaté jablko",
+      "type": "HEAL",
       "id": "goldenApple",
       "heal": 65,
       "durability": 1
     },
     {
       "name": "lektvar",
+      "type": "HEAL",
       "id": "potion",
       "heal": 45,
       "durability": 1
     },
     {
       "name": "obvaz",
+      "type": "HEAL",
       "id": "bandage",
       "heal": 30,
       "durability": 1
     },
     {
       "name": "lektvar štěstí",
+      "type": "HEAL",
       "id": "potion2",
       "heal": 100,
       "durability": 1
     },
     {
       "name": "kus obvazu",
+      "type": "HEAL",
       "id": "oldBandage",
       "heal": 25,
       "durability": 1
     },
     {
       "name": "meč",
+      "type": "ATTACK",
       "id": "sword",
       "attack": 20,
       "durability": 10
     },
     {
       "name": "dýka",
+      "type": "ATTACK",
       "id": "dagger",
       "attack": 17,
       "durability": 10
     },
     {
       "name": "palice",
+      "type": "ATTACK",
       "id": "mace",
       "attack": 25,
       "durability": 4
     },
     {
       "name": "luk",
+      "type": "ATTACK",
       "id": "bow",
       "attack": 30,
       "durability": 12
     },
     {
       "name": "kouzelná hůlka",
+      "type": "ATTACK",
       "id": "magicHulk",
       "attack": 50,
       "durability": 3
     },
     {
       "name": "stříbrný meč",
+      "type": "ATTACK",
       "id": "silverSword",
       "attack": 5,
       "durability": 3
     },
     {
       "name": "zrezlá sekera",
+      "type": "ATTACK",
       "id": "OldAxe",
       "attack": 15,
       "durability": 5
     }
   ],
-  "Player": {
+  "player": {
     "health": 100,
-    "maxHelath": 100,
+    "maxHealth": 100,
     "inventoryCapacity": 7,
     "itemsID": [
       "oldBandage",
@@ -83,7 +95,7 @@
       "oldAxe"
     ]
   },
-  "Enemies": [
+  "enemies": [
     {
       "name": "Kostlivec",
       "info": "",

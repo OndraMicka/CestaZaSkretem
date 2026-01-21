@@ -7,8 +7,7 @@ import com.sun.tools.javac.Main;
 import items.Item;
 import rooms.FightRoom;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
@@ -30,20 +29,26 @@ public class GameData {
      * @return a GameData object filled with the loaded data
      */
     public static GameData loadGameDataFromResources(String resourcePath) {
+//        Gson gson = new Gson();
+//        try (InputStream in = new FileInputStream(resourcePath)) {
+//                return gson.fromJson(
+//                        in.toString(),
+//                        GameData.class
+//                );
+//        } catch (Exception e) {
+//            throw new RuntimeException("Chyba při načítání JSON: " + e.getMessage());
+//        }
+
         Gson gson = new Gson();
-        try (InputStream is = Main.class.getResourceAsStream(resourcePath)) {
-            if (is == null) {
-                throw new IllegalStateException("Nenalezen resource: " + resourcePath +
-                        " (zkontrolujte, že soubor je v src/main/resources).");
-            }
+        try (Reader rd = new FileReader(resourcePath)) {
             return gson.fromJson(
-                    new InputStreamReader(is, StandardCharsets.UTF_8),
+                    rd,
                     GameData.class
             );
-
         } catch (Exception e) {
             throw new RuntimeException("Chyba při načítání JSON: " + e.getMessage());
         }
-
     }
+
+
 }
