@@ -4,11 +4,8 @@ import characters.Enemy;
 
 public class FightRoom extends Room {
     private Enemy enemy;
+    private String enemyName;
 
-    public FightRoom(String info, Enemy enemy) {
-        super(info);
-        this.enemy = enemy;
-    }
 
     public Enemy getEnemy() {
         return enemy;
@@ -18,6 +15,7 @@ public class FightRoom extends Room {
     public String toString() {
         return "FightRoom{" +
                 "enemy=" + enemy +
+                ", enemyName='" + enemyName + '\'' +
                 ", info='" + info + '\'' +
                 '}';
     }
