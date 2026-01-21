@@ -2,16 +2,52 @@ package core;
 
 import characters.Player;
 
+import rooms.ItemRoom;
 import rooms.Room;
 
 
+import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * Stores all rooms player can enter, player and game data.
+ */
 public class Game {
-    private Queue<Room> rooms;
-    private Room actualRoom;
-    private GameData gameData;
-    private Player player;
-    private CommandMannager commandMannager;
+    private final Queue<Room> rooms;
+    private final Player player;
+    private final GameData gameData;
 
+    /**
+     * Loads game data from json,
+     * adds all rooms to queue.
+     */
+    public Game() {
+        player = new Player();
+        gameData = GameData.loadGameDataFromResources("resources/gameData.json");
+
+        rooms = new LinkedList<>();
+        for (int i = 0; i < 3; i++) {
+            rooms.add(gameData.itemRooms.get(i));
+            rooms.add(gameData.itemRooms.get(i+1));
+            rooms.add(gameData.itemRooms.get(i+2));
+            rooms.add(gameData.fightRooms.get(i));
+        }
+        rooms.add(gameData.fightRooms.get(3));
+    }
+
+    /**
+     * moves player to the next room
+     * @return if queue is empty, returns false, used for game loop to stop
+     */
+    public boolean goToNextRoom(){
+        return rooms.poll() != null;
+    }
+
+    /**
+     * returns actual room where player is.
+     * @return FightRoom or ItemRoom
+     */
+    public Room getCurrentRoom(){
+        return rooms.peek();
+    }
 }

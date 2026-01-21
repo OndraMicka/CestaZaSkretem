@@ -140,21 +140,50 @@
       ]
     }
   ],
+  "itemRooms": [
+    {
+      "info": "1"
+    },
+    {
+      "info": "2"
+    },
+    {
+      "info": "3"
+    },
+    {
+      "info": "4"
+    },
+    {
+      "info": "5"
+    },
+    {
+      "info": "6"
+    },
+    {
+      "info": "7"
+    },
+    {
+      "info": "8"
+    },
+    {
+      "info": "9"
+    }
+  ],
   "fightRooms": [
     {
-      "info": "",
+      "info": "1",
       "enemyName": "Kostlivec"
     },
     {
-      "info": "",
+      "info": "2",
       "enemyName": "Čarodějnice"
     },
     {
-      "info": "",
+      "info": "3",
       "enemyName": "Bezhlavý rytíř"
     },
     {
-      "info": "",
+      "info": "4",
       "enemyName": "Skřet"
     }
   ]

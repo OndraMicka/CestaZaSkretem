@@ -11,6 +11,14 @@ public class FightRoom extends Room {
         return enemy;
     }
 
+    public void setEnemy(Enemy enemy) {
+        this.enemy = enemy;
+    }
+
+    public String getEnemyName() {
+        return enemyName;
+    }
+
     @Override
     public String toString() {
         return "FightRoom{" +

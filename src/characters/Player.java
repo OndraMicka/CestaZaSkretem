@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Player extends GameCharacter {
     private int maxHealth;
 
+
     @Override
     public String toString() {
         return "Player{" +

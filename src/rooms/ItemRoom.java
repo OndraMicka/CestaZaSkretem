@@ -14,6 +14,14 @@ public class ItemRoom extends Room {
         return questionAsked;
     }
 
+    public void setQuestionAsked(boolean questionAsked) {
+        this.questionAsked = questionAsked;
+    }
+
+    public void setChestOpened(boolean chestOpened) {
+        this.chestOpened = chestOpened;
+    }
+
     @Override
     public String toString() {
         return "ItemRoom{" +
