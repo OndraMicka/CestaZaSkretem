@@ -5,90 +5,104 @@
       "type": "HEAL",
       "id": "goldenApple",
       "heal": 65,
-      "durability": 1
+      "durability": 1,
+      "info": "Zlaté jablko - uzdravení: 65"
     },
     {
       "name": "lektvar",
       "type": "HEAL",
       "id": "potion",
       "heal": 45,
-      "durability": 1
+      "durability": 1,
+      "info": "Lektvar - uzdravení: 45"
     },
     {
       "name": "obvaz",
       "type": "HEAL",
       "id": "bandage",
       "heal": 30,
-      "durability": 1
+      "durability": 1,
+      "info": "Obvaz - uzdravení: 30"
     },
     {
       "name": "lektvar štěstí",
       "type": "HEAL",
       "id": "potion2",
       "heal": 100,
-      "durability": 1
+      "durability": 1,
+      "info": "Lektvar Štěstí - Šance 50% že přidá 100 životů, jinak ubere 100 životů."
     },
     {
       "name": "kus obvazu",
       "type": "HEAL",
       "id": "oldBandage",
       "heal": 25,
-      "durability": 1
+      "durability": 1,
+      "info": "Starý kus obvazu - uzdravení: 25"
     },
     {
       "name": "meč",
       "type": "ATTACK",
       "id": "sword",
       "attack": 20,
-      "durability": 10
+      "durability": 10,
+      "info": "Meč- útok: 20"
     },
     {
       "name": "dýka",
       "type": "ATTACK",
       "id": "dagger",
       "attack": 17,
-      "durability": 10
+      "durability": 10,
+      "info": "Dýka - útok: 17"
     },
     {
       "name": "palice",
       "type": "ATTACK",
       "id": "mace",
       "attack": 25,
-      "durability": 4
+      "durability": 4,
+      "info": "Palice - útok: 25"
     },
     {
       "name": "luk",
       "type": "ATTACK",
       "id": "bow",
       "attack": 30,
-      "durability": 12
+      "durability": 12,
+      "info": "Luk- Šance 70% že trefí cíl a ubere 30 životů."
     },
     {
       "name": "kouzelná hůlka",
       "type": "ATTACK",
       "id": "magicHulk",
       "attack": 50,
-      "durability": 3
+      "durability": 3,
+      "info": "Kouzelná hůlka - Šance 66% že ubere 50 životů oběti, jinak ubere 50 životů hráči."
     },
     {
       "name": "stříbrný meč",
       "type": "ATTACK",
       "id": "silverSword",
       "attack": 5,
-      "durability": 3
+      "durability": 3,
+      "info": "Stříbrný meč - útok: 5, skřetovi ubere 40 životů"
     },
     {
       "name": "zrezlá sekera",
       "type": "ATTACK",
-      "id": "OldAxe",
+      "id": "oldAxe",
       "attack": 15,
-      "durability": 5
+      "durability": 5,
+      "info": "Zrezlá sekera - útok: 15"
     }
   ],
   "player": {
     "health": 100,
     "maxHealth": 100,
-    "inventoryCapacity": 7,
+    "inventory": {
+      "capacity": 7
+    },
     "itemsID": [
       "oldBandage",
       "oldBandage",
@@ -100,7 +114,9 @@
       "name": "Kostlivec",
       "info": "",
       "health": 100,
-      "inventoryCapacity": 5,
+      "inventory": {
+        "capacity": 5
+      },
       "itemsID": [
         "bandage",
         "bow"
@@ -110,7 +126,9 @@
       "name": "Čarodějnice",
       "info": "",
       "health": 90,
-      "inventoryCapacity": 5,
+      "inventory": {
+        "capacity": 5
+      },
       "itemsID": [
         "potion",
         "potion",
@@ -121,7 +139,9 @@
       "name": "Bezhlavý rytíř",
       "info": "",
       "health": 120,
-      "inventoryCapacity": 5,
+      "inventory": {
+        "capacity": 5
+      },
       "itemsID": [
         "sword",
         "bandage"
@@ -131,7 +151,9 @@
       "name": "Skřet",
       "info": "",
       "health": 200,
-      "inventoryCapacity": 5,
+      "inventory": {
+        "capacity": 5
+      },
       "itemsID": [
         "bandage",
         "potion",

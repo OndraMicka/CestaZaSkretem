@@ -16,7 +16,6 @@ public class Enemy extends GameCharacter{
                 ", name='" + name + '\'' +
                 ", health=" + health +
                 ", inventory=" + inventory +
-                ", inventoryCapacity=" + inventoryCapacity +
                 ", itemsID=" + itemsID +
                 '}';
     }

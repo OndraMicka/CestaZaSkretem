@@ -1,11 +1,13 @@
 package core;
 
+import characters.Enemy;
 import characters.Player;
 
 import rooms.ItemRoom;
 import rooms.Room;
 
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -22,8 +24,25 @@ public class Game {
      * adds all rooms to queue.
      */
     public Game() {
-        player = new Player();
         gameData = GameData.loadGameDataFromResources("resources/gameData.json");
+        player = gameData.player;
+
+        ItemParser itemParser = new ItemParser(this);
+        for (int i = 0; i < gameData.enemies.size(); i++) {
+            Enemy enemy = gameData.enemies.get(i);
+            for (String id : enemy.getItemsID()) {
+                enemy.getInventory().addItem(itemParser.getItem(id));
+            }
+        }
+        ArrayList<String> IDs = player.getItemsID();
+        for (int i = 0; i < player.getItemsID().size(); i++) {
+            player.getInventory().addItem(itemParser.getItem(IDs.get(i)));
+        }
+
+        System.out.println(player.getInventory());
+        for (int i = 0; i < gameData.enemies.size(); i++) {
+            System.out.println(gameData.enemies.get(i).getInventory());
+        }
 
         rooms = new LinkedList<>();
         for (int i = 0; i < 3; i++) {
@@ -33,6 +52,18 @@ public class Game {
             rooms.add(gameData.fightRooms.get(i));
         }
         rooms.add(gameData.fightRooms.get(3));
+    }
+
+    public Queue<Room> getRooms() {
+        return rooms;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public GameData getGameData() {
+        return gameData;
     }
 
     /**

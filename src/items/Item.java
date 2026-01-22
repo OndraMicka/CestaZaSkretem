@@ -14,6 +14,18 @@ public class Item {
         return info;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public ItemType getType() {
+        return type;
+    }
+
+    public String getId() {
+        return id;
+    }
+
     public int getDurability() {
         return durability;
     }

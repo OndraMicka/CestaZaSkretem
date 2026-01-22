@@ -1,15 +1,19 @@
 package characters;
 
 
+import core.GameData;
 import core.Inventory;
+import core.ItemParser;
+import rooms.Room;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public abstract class GameCharacter {
     protected String name;
     protected int health;
     protected Inventory inventory;
-    protected int inventoryCapacity;
     protected ArrayList<String> itemsID;
 
     public String getName() {
@@ -24,11 +28,10 @@ public abstract class GameCharacter {
         return inventory;
     }
 
-    public int getInventoryCapacity() {
-        return inventoryCapacity;
-    }
 
     public ArrayList<String> getItemsID() {
         return itemsID;
     }
+
+
 }

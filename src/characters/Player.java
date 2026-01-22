@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class Player extends GameCharacter {
     private int maxHealth;
 
-
     @Override
     public String toString() {
         return "Player{" +
@@ -15,7 +14,6 @@ public class Player extends GameCharacter {
                 ", name='" + name + '\'' +
                 ", health=" + health +
                 ", inventory=" + inventory +
-                ", inventoryCapacity=" + inventoryCapacity +
                 ", itemsID=" + itemsID +
                 '}';
     }
