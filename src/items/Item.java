@@ -33,6 +33,7 @@ public class Item {
     public void setDurability(int durability) {
         this.durability = durability;
     }
+
     public void use(GameCharacter attacker,GameCharacter attacked) {
         //todo
     }

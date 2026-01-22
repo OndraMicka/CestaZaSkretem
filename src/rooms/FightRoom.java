@@ -19,6 +19,8 @@ public class FightRoom extends Room {
         return enemyName;
     }
 
+
+
     @Override
     public String toString() {
         return "FightRoom{" +

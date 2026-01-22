@@ -3,6 +3,7 @@ package core;
 import characters.Enemy;
 import characters.Player;
 
+import rooms.FightRoom;
 import rooms.ItemRoom;
 import rooms.Room;
 
@@ -39,9 +40,9 @@ public class Game {
             player.getInventory().addItem(itemParser.getItem(IDs.get(i)));
         }
 
-        System.out.println(player.getInventory());
-        for (int i = 0; i < gameData.enemies.size(); i++) {
-            System.out.println(gameData.enemies.get(i).getInventory());
+        EnemyParser enemyParser = new EnemyParser(this);
+        for (FightRoom fightRoom:gameData.fightRooms) {
+            fightRoom.setEnemy(enemyParser.getEnemy(fightRoom.getEnemyName()));
         }
 
         rooms = new LinkedList<>();
