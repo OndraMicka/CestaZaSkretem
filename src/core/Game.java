@@ -53,6 +53,8 @@ public class Game {
             rooms.add(gameData.fightRooms.get(i));
         }
         rooms.add(gameData.fightRooms.get(3));
+
+
     }
 
     public Queue<Room> getRooms() {

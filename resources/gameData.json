@@ -3,96 +3,108 @@
     {
       "name": "zlaté jablko",
       "type": "HEAL",
+      "method": "HEAL",
       "id": "goldenApple",
-      "heal": 65,
+      "healthAmount": 65,
       "durability": 1,
       "info": "Zlaté jablko - uzdravení: 65"
     },
     {
       "name": "lektvar",
       "type": "HEAL",
+      "method": "HEAL",
       "id": "potion",
-      "heal": 45,
+      "healthAmount": 45,
       "durability": 1,
       "info": "Lektvar - uzdravení: 45"
     },
     {
       "name": "obvaz",
       "type": "HEAL",
+      "method": "HEAL",
       "id": "bandage",
-      "heal": 30,
+      "healthAmount": 30,
       "durability": 1,
       "info": "Obvaz - uzdravení: 30"
     },
     {
       "name": "lektvar štěstí",
       "type": "HEAL",
+      "method": "LUCKY_POTION",
       "id": "potion2",
-      "heal": 100,
+      "healthAmount": 100,
       "durability": 1,
       "info": "Lektvar Štěstí - Šance 50% že přidá 100 životů, jinak ubere 100 životů."
     },
     {
       "name": "kus obvazu",
       "type": "HEAL",
+      "method": "HEAL",
       "id": "oldBandage",
-      "heal": 25,
+      "healthAmount": 25,
       "durability": 1,
       "info": "Starý kus obvazu - uzdravení: 25"
     },
     {
       "name": "meč",
       "type": "ATTACK",
+      "method": "ATTACK",
       "id": "sword",
-      "attack": 20,
+      "healthAmount": 20,
       "durability": 10,
       "info": "Meč- útok: 20"
     },
     {
       "name": "dýka",
       "type": "ATTACK",
+      "method": "ATTACK",
       "id": "dagger",
-      "attack": 17,
+      "healthAmount": 17,
       "durability": 10,
       "info": "Dýka - útok: 17"
     },
     {
       "name": "palice",
       "type": "ATTACK",
+      "method": "ATTACK",
       "id": "mace",
-      "attack": 25,
+      "healthAmount": 25,
       "durability": 4,
       "info": "Palice - útok: 25"
     },
     {
       "name": "luk",
       "type": "ATTACK",
+      "method": "BOW",
       "id": "bow",
-      "attack": 30,
+      "healthAmount": 30,
       "durability": 12,
-      "info": "Luk- Šance 70% že trefí cíl a ubere 30 životů."
+      "info": "Luk- Šance 66% že trefí cíl a ubere 30 životů."
     },
     {
       "name": "kouzelná hůlka",
       "type": "ATTACK",
-      "id": "magicHulk",
-      "attack": 50,
+      "method": "MAGIC_WAND",
+      "id": "magicWand",
+      "healthAmount": 50,
       "durability": 3,
       "info": "Kouzelná hůlka - Šance 66% že ubere 50 životů oběti, jinak ubere 50 životů hráči."
     },
     {
       "name": "stříbrný meč",
       "type": "ATTACK",
+      "method": "SILVER_SWORD",
       "id": "silverSword",
-      "attack": 5,
+      "healthAmount": 5,
       "durability": 3,
       "info": "Stříbrný meč - útok: 5, skřetovi ubere 40 životů"
     },
     {
       "name": "zrezlá sekera",
       "type": "ATTACK",
+      "method": "ATTACK",
       "id": "oldAxe",
-      "attack": 15,
+      "healthAmount": 15,
       "durability": 5,
       "info": "Zrezlá sekera - útok: 15"
     }
@@ -132,7 +144,7 @@
       "itemsID": [
         "potion",
         "potion",
-        "magicHulk"
+        "magicWand"
       ]
     },
     {

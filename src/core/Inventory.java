@@ -1,5 +1,6 @@
 package core;
 
+import characters.GameCharacter;
 import items.Item;
 
 import java.util.ArrayList;
@@ -32,10 +33,10 @@ public class Inventory {
         return false;
     }
 
-    public Item use(int index) {
+    public void use(int index, GameCharacter attacker,GameCharacter attacked) {
         Item item = items.get(index);
         items.remove(index);
-        return item;
+        item.use(attacker,attacked);
     }
 
     public int getCapacity() {

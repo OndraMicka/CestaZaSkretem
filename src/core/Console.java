@@ -2,6 +2,7 @@ package core;
 
 
 import commands.EndCommand;
+import commands.InventoryCommand;
 import commands.MoveCommand;
 
 import java.util.Scanner;
@@ -43,5 +44,6 @@ public class Console {
         this.commandManager = new CommandManager();
         commandManager.register("nextroom", new MoveCommand(game));
         commandManager.register("endgame", new EndCommand());
+        commandManager.register("inventory",new InventoryCommand(game.getPlayer()));
     }
 }

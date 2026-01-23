@@ -24,6 +24,10 @@ public abstract class GameCharacter {
         return health;
     }
 
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
     public Inventory getInventory() {
         return inventory;
     }
