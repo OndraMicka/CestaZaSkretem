@@ -1,0 +1,8 @@
+pomoc - vypíše všechny příkazy s vysvětlením
+hledat okolo - vypíše se vše co se nachází kolem.
+//konec hry - ukončí se hra
+//inventar - vypíše se inventář
+fight - spustí se souboj s příšerou
+otazka - kouzelník položí otázku
+truhla - otevře se truhla
+//jit dal - půjdeš dál (bez možnosti se vrátit)

@@ -5,6 +5,7 @@ import commands.EndCommand;
 import commands.InventoryCommand;
 import commands.MoveCommand;
 
+import java.text.Normalizer;
 import java.util.Scanner;
 
 /**
@@ -24,7 +25,13 @@ public class Console {
         do {
             System.out.print(">>");
             String read = sc.nextLine();
-            read = read.toLowerCase().trim();
+            //Pouzito ChatGPT pro upravu inputu.
+            //-----
+            read = Normalizer.normalize(read, Normalizer.Form.NFD)
+                    .replaceAll("\\p{M}", "")
+                    .replaceAll("\\s+", "")
+                    .toLowerCase();
+            //-----
             String result = commandManager.execute(read);
             if (result == null) {
                 System.out.println("Neznámý příkaz, napiš 'help' pro vypsání příkazů.");
@@ -42,8 +49,8 @@ public class Console {
         sc = new Scanner(System.in);
 
         this.commandManager = new CommandManager();
-        commandManager.register("nextroom", new MoveCommand(game));
-        commandManager.register("endgame", new EndCommand());
-        commandManager.register("inventory",new InventoryCommand(game.getPlayer()));
+        commandManager.register("jitdal", new MoveCommand(game));
+        commandManager.register("konechry", new EndCommand());
+        commandManager.register("inventar",new InventoryCommand(game.getPlayer()));
     }
 }
