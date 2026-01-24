@@ -39,7 +39,6 @@ public class Item {
     }
 
 
-
     @Override
     public String toString() {
         return "Item{" +
@@ -52,40 +51,41 @@ public class Item {
     }
 
     /**
+     * Uses item.
      *
      * @param attacker Game character who is attacking
      * @param attacked Game character who is attacked
      */
 
-    public void use(GameCharacter attacker,GameCharacter attacked) {
+    public void use(GameCharacter attacker, GameCharacter attacked) {
         Random rd = new Random();
-        switch (method){
-            case HEAL -> attacker.setHealth(attacker.getHealth()+healthAmount);
-            case ATTACK -> attacked.setHealth(attacked.getHealth()-healthAmount);
+        switch (method) {
+            case HEAL -> attacker.setHealth(attacker.getHealth() + healthAmount);
+            case ATTACK -> attacked.setHealth(attacked.getHealth() - healthAmount);
             case BOW -> {
-                if(!(rd.nextInt(3)==0)){
-                    attacked.setHealth(attacked.getHealth()-healthAmount);
+                if (!(rd.nextInt(3) == 0)) {
+                    attacked.setHealth(attacked.getHealth() - healthAmount);
                 }
             }
             case MAGIC_WAND -> {
-                if(rd.nextInt(3)==0){
-                    attacker.setHealth(attacker.getHealth()-healthAmount);
-                }else {
-                    attacked.setHealth(attacked.getHealth()-healthAmount);
+                if (rd.nextInt(3) == 0) {
+                    attacker.setHealth(attacker.getHealth() - healthAmount);
+                } else {
+                    attacked.setHealth(attacked.getHealth() - healthAmount);
                 }
             }
             case LUCKY_POTION -> {
-                if(rd.nextBoolean()){
-                    attacker.setHealth(attacker.getHealth()+healthAmount);
-                }else {
-                    attacker.setHealth(attacker.getHealth()-healthAmount);
+                if (rd.nextBoolean()) {
+                    attacker.setHealth(attacker.getHealth() + healthAmount);
+                } else {
+                    attacker.setHealth(attacker.getHealth() - healthAmount);
                 }
             }
             case SILVER_SWORD -> {
-                if(attacked.getName().equals("Skřet")){
-                    attacked.setHealth(attacked.getHealth()-40);
-                }else {
-                    attacked.setHealth(attacked.getHealth()-healthAmount);
+                if (attacked.getName().equals("Skřet")) {
+                    attacked.setHealth(attacked.getHealth() - 40);
+                } else {
+                    attacked.setHealth(attacked.getHealth() - healthAmount);
                 }
             }
             default -> throw new IllegalArgumentException("invalid method: " + method);

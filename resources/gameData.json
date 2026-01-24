@@ -79,7 +79,7 @@
       "id": "bow",
       "healthAmount": 30,
       "durability": 12,
-      "info": "Luk- Šance 66% že trefí cíl a ubere 30 životů."
+      "info": "Luk- Šance 66% že trefí cíl a ubere 30 životů"
     },
     {
       "name": "kouzelná hůlka",
@@ -88,7 +88,7 @@
       "id": "magicWand",
       "healthAmount": 50,
       "durability": 3,
-      "info": "Kouzelná hůlka - Šance 66% že ubere 50 životů oběti, jinak ubere 50 životů hráči."
+      "info": "Kouzelná hůlka - Šance 66% že ubere 50 životů oběti, jinak ubere 50 životů hráči"
     },
     {
       "name": "stříbrný meč",
