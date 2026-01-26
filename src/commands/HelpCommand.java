@@ -1,16 +1,14 @@
 package commands;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.InputStreamReader;
 
 public class HelpCommand implements Command {
     @Override
     public String execute() {
         String text = "";
         try {
-            BufferedReader br = new BufferedReader(new FileReader("/helpMessage.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("resources/helpMessage.txt"));
             String line = "";
             while ((line = br.readLine())!= null){
                 text += line + "\n";

@@ -22,6 +22,7 @@ public class ItemRoom extends Room {
         this.chestOpened = chestOpened;
     }
 
+
     @Override
     public String toString() {
         return "ItemRoom{" +

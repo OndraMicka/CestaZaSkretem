@@ -6,11 +6,4 @@ public abstract class Room {
     public String getInfo() {
         return info;
     }
-
-    @Override
-    public String toString() {
-        return "Room{" +
-                "info='" + info + '\'' +
-                '}';
-    }
 }

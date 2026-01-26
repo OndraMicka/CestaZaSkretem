@@ -1,9 +1,7 @@
 package core;
 
 
-import commands.EndCommand;
-import commands.InventoryCommand;
-import commands.MoveCommand;
+import commands.*;
 
 import java.text.Normalizer;
 import java.util.Scanner;
@@ -34,7 +32,7 @@ public class Console {
             //-----
             String result = commandManager.execute(read);
             if (result == null) {
-                System.out.println("Neznámý příkaz, napiš 'help' pro vypsání příkazů.");
+                System.out.println("Neznámý příkaz, napiš 'pomoc' pro vypsání příkazů.");
             } else {
                 System.out.println(result);
             }
@@ -49,8 +47,14 @@ public class Console {
         sc = new Scanner(System.in);
 
         this.commandManager = new CommandManager();
+        commandManager.register("hledatokolo",new LookAroundCommand(game));
+        commandManager.register("pomoc", new HelpCommand());
         commandManager.register("jitdal", new MoveCommand(game));
         commandManager.register("konechry", new EndCommand());
         commandManager.register("inventar",new InventoryCommand(game.getPlayer()));
+        commandManager.register("bojovat",new FightCommand(game));
+        commandManager.register("truhla",new ChestCommand(game));
+        commandManager.register("otazka",new QuestionCommand(game));
+
     }
 }

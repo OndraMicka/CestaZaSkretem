@@ -20,7 +20,6 @@ public class FightRoom extends Room {
     }
 
 
-
     @Override
     public String toString() {
         return "FightRoom{" +
