@@ -2,6 +2,7 @@ package core;
 
 
 import commands.*;
+import features.ChestManager;
 
 import java.text.Normalizer;
 import java.util.Scanner;
@@ -13,6 +14,7 @@ public class Console {
     private final Game game;
     private final Scanner sc;
     private final CommandManager commandManager;
+    private ChestManager chestManager;
 
     /**
      * Prints out story. TODO
@@ -45,6 +47,7 @@ public class Console {
     public Console() {
         game = new Game();
         sc = new Scanner(System.in);
+        chestManager = new ChestManager();
 
         this.commandManager = new CommandManager();
         commandManager.register("hledatokolo",new LookAroundCommand(game));
@@ -53,7 +56,7 @@ public class Console {
         commandManager.register("konechry", new EndCommand());
         commandManager.register("inventar",new InventoryCommand(game.getPlayer()));
         commandManager.register("bojovat",new FightCommand(game));
-        commandManager.register("truhla",new ChestCommand(game));
+        commandManager.register("truhla",new ChestCommand(chestManager));
         commandManager.register("otazka",new QuestionCommand(game));
 
     }
