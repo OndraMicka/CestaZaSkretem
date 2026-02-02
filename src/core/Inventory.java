@@ -23,14 +23,9 @@ public class Inventory {
      * @return String text, print to console
      */
     public String toString() {
-        String str = "Inventář obsahuje:";
+        String str = "Inventář obsahuje:\n";
         for (int i = 0; i < items.size(); i++) {
-            Item item = items.get(i);
-            if(item.getType()==ItemType.HEAL) {
-                str += "\n" + (i + 1) + ": " + item.getDurability() + "x " + item.getInfo();
-            }else {
-                str += "\n" + (i + 1) + ": " + item.getInfo()+", životnost: " + item.getDurability();
-            }
+            str += (i+1)+": "+items.get(i).getPrintInfo()+"\n";
         }
         return str;
     }

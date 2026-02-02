@@ -49,6 +49,17 @@ public class Item {
                 ", durability=" + durability +
                 '}';
     }
+    public String getPrintInfo() {
+        try {
+            if (getType() == ItemType.HEAL) {
+                return getDurability() + "x " + getInfo();
+            } else {
+                return getInfo() + ", životnost: " + getDurability();
+            }
+        }catch (NullPointerException _) {
+            return null;
+        }
+    }
 
     /**
      * Uses item.
@@ -91,6 +102,7 @@ public class Item {
             default -> throw new IllegalArgumentException("invalid method: " + method);
         }
     }
+
 
 
 }
