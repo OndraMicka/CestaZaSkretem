@@ -5,6 +5,8 @@ import items.Item;
 import items.ItemType;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /**
  * Stores all items of game character.
@@ -17,15 +19,44 @@ public class Inventory {
         this.capacity = capacity;
     }
 
+    public void addItemInteractive(Item item) {
+        Scanner scanner = new Scanner(System.in);
+        if (!addItem(item)) {
+            System.out.println("Nemáš pro item dostatek místa. Zadej číslo predmětu,\nza který chceš předmět vyměnit,\nnebo 0 pro zahození itemu..");
+            System.out.println(this);
+            do {
+                System.out.print(">>");
+                try {
+                    int choice = scanner.nextInt();
+                    if (choice == 0) {
+                        System.out.println("Zahodil jsi předmět.");
+                        return;
+                    }
+                    if (removeItem(choice)){
+                        addItem(item);
+                        System.out.println("Vyměnil jsi si předmět za nový.");
+                        return;
+                    }
+
+                }catch (InputMismatchException _) {
+                    System.out.println("Zadej číslo.");
+                    scanner.nextLine();
+                }
+            } while (true);
+        }
+        System.out.println("Vzal jsi předmět.");
+    }
+
 
     /**
      * returns string with all items in inventory, with index, durability and info.
+     *
      * @return String text, print to console
      */
     public String toString() {
         String str = "Inventář obsahuje:\n";
         for (int i = 0; i < items.size(); i++) {
-            str += (i+1)+": "+items.get(i).getPrintInfo()+"\n";
+            str += (i + 1) + ": " + items.get(i).getPrintInfo() + "\n";
         }
         return str;
     }
@@ -34,6 +65,7 @@ public class Inventory {
      * If inventory is not full, adds item to inventory .
      * If item type is HEAL => Adds new item or adds durability to an already contained item.
      * If item type is ATTACK => Adds new item to list.
+     *
      * @param item Item to be added
      * @return true if operation was successful, false if inventory was full.
      */
@@ -59,6 +91,7 @@ public class Inventory {
 
     /**
      * Removes item from list.
+     *
      * @param Index Index of item in list.
      * @return If wrong index was given, returns false.
      */
@@ -73,7 +106,8 @@ public class Inventory {
 
     /**
      * Uses item. Lowers durability or removes item if durability was 1.which
-     * @param index index of item in list
+     *
+     * @param index    index of item in list
      * @param attacker Game character which is attacking.
      * @param attacked Game character to be attacked.
      */

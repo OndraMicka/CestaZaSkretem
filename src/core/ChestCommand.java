@@ -32,6 +32,7 @@ public class ChestCommand implements Command {
                 } while (item == null);
                 room.setChestOpened(true);
                 //TODO: add picked item to inventory
+                game.getPlayer().getInventory().addItemInteractive(item);
 
                 return "";
 
@@ -40,7 +41,7 @@ public class ChestCommand implements Command {
                 return "Už jsi truhlu otevřel.";
             }
         }else{
-            return "Kolem tebe žádná truhla není..";
+            return "Kolem tebe žádná truhla není.";
         }
     }
 }
