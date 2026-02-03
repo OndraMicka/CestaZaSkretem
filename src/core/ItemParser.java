@@ -23,7 +23,7 @@ public class ItemParser {
         if(item == null) {
             throw new NullPointerException("Id does not match any Item.");
         }
-            return item;
+            return item.copyOfItem();
 
     }
 }
