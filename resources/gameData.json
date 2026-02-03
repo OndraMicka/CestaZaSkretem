@@ -176,48 +176,48 @@
   ],
   "itemRooms": [
     {
-      "info": "1"
+      "info": "Mezi pokroucenými stromy leží stará dřevěná truhla zarostlá mechem, vedle ní tiše stojí kouzelník v šedém plášti.\nVzduch je studený a les kolem šumí, jako by tě někdo z dálky pozoroval."
     },
     {
-      "info": "2"
+      "info": "Na malé mýtině probleskuje světlo mezi větvemi a u pařezu odpočívá zamčená truhla, kouzelník si něco mumlá pod nosem.\nListí šustí pod nohama a v dálce křičí havran, jinak je kolem nepříjemné ticho."
     },
     {
-      "info": "3"
+      "info": "U kamenného balvanu stojí oprýskaná truhla a vedle ní se o hůl opírá kouzelník s klidným výrazem.\nMlžný opar se plazí mezi stromy a les působí hlubší, než ve skutečnosti je."
     },
     {
-      "info": "4"
+      "info": "Mezi hustými keři je napůl zakrytá truhla a kouzelník stojí opřený o strom.\nLes je tu tmavší, větve se nad tebou skoro zavírají."
     },
     {
-      "info": "5"
+      "info": "Na vlhké půdě u kořenů starého dubu leží malá truhla, kouzelník tiše sleduje okolí.\nKolem je slyšet jen kapání vody z listí."
     },
     {
-      "info": "6"
+      "info": "Na úzké lesní stezce čeká truhla a kouzelník drží hůl pevně u sebe.\nMlha se válí nízko u země a tlumí každý krok."
     },
     {
-      "info": "7"
+      "info": "U kruhu z kamenů stojí truhla a kouzelník se dívá do korun stromů.\nVzduch je nehybný a les působí prázdně."
     },
     {
-      "info": "8"
+      "info": "Pod převislou skálou je schovaná truhla, kouzelník stojí kousek stranou ve stínu.\nOzývá se jen vzdálené houkání sovy."
     },
     {
-      "info": "9"
+      "info": "Na malé pasece plné suchého listí leží truhla a kouzelník čeká s klidnou tváří.\nVítr rozechvívá větve a světlo rychle mizí mezi stromy."
     }
   ],
   "fightRooms": [
     {
-      "info": "1",
+      "info": "Z křoví vychází kostlivec s lukem v ruce, jeho prázdné oční důlky míří přímo na tebe.\nStojí u zlomeného stromu a vítr rozeznívá jeho kosti suchým klapáním.",
       "enemyName": "Kostlivec"
     },
     {
-      "info": "2",
+      "info": "Na okraji bažinaté louže se vznáší čarodějnice s holí, kolem ní poletují jiskry fialového světla.\nVzduch je těžký a zapáchá bylinami, zem pod nohama lehce bublá.",
       "enemyName": "Čarodějnice"
     },
     {
-      "info": "3",
+      "info": "U zarostlé lesní stezky stojí bezhlavý rytíř v rezavém brnění a svírá dlouhý meč.\nJeho kroky duní do země a kov skřípe, i když se téměř nehýbe.",
       "enemyName": "Bezhlavý rytíř"
     },
     {
-      "info": "4",
+      "info": "Vstupuješ do temné jeskyně vytesané ve skále, ze stropu kape voda a ozvěna se nese do hloubky.\nNa zemi leží hromady kamenů a staré kosti, vzduch je vlhký a těžký.",
       "enemyName": "Skřet"
     }
   ]

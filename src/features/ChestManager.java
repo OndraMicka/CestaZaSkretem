@@ -17,6 +17,7 @@ public class ChestManager {
         queue3 = new LinkedList<>();
         queue1.add(gameData.items.get(0));
         queue2.add(gameData.items.get(1));
+        //TODO add items to queue
 
     }
 
@@ -38,7 +39,6 @@ public class ChestManager {
         info += "2. " + info2 + "\n";
         info += "3. " + info3 + "\n";
         return info;
-        //todo
     }
 
     public Item pick(String num) {

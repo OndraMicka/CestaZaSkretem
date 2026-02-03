@@ -31,7 +31,6 @@ public class ChestCommand implements Command {
                     item = chestManager.pick(choice);
                 } while (item == null);
                 room.setChestOpened(true);
-                //TODO: add picked item to inventory
                 game.getPlayer().getInventory().addItemInteractive(item);
 
                 return "";

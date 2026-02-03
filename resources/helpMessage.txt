@@ -4,5 +4,5 @@
 //inventar - vypíše se inventář
 bojovat - spustí se souboj s příšerou
 otazka - kouzelník položí otázku
-truhla - otevře se truhla
+//truhla - otevře se truhla
 //jit dal - půjdeš dál (bez možnosti se vrátit)
