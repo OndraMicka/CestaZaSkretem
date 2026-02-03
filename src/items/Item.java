@@ -14,6 +14,19 @@ public class Item {
     private int durability;
 
 
+    public Item copyOfItem() {
+        Item newItem = new Item();
+        newItem.name = this.name;
+        newItem.type = this.type;
+        newItem.method = this.method;
+        newItem.healthAmount = this.healthAmount;
+        newItem.id = this.id;
+        newItem.info = this.info;
+        newItem.durability = this.durability;
+        return newItem;
+
+    }
+
     public String getInfo() {
         return info;
     }

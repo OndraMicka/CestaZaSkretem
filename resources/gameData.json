@@ -220,5 +220,89 @@
       "info": "Vstupuješ do temné jeskyně vytesané ve skále, ze stropu kape voda a ozvěna se nese do hloubky.\nNa zemi leží hromady kamenů a staré kosti, vzduch je vlhký a těžký.",
       "enemyName": "Skřet"
     }
+  ],
+  "itemsInChest": [
+    {
+      "id": "sword",
+      "durability": 0
+    },
+    {
+      "id": "mace",
+      "durability": 0
+    },
+    {
+      "id": "magicWand",
+      "durability": 0
+    },
+    {
+      "id": "goldenApple",
+      "durability": 1
+    },
+    {
+      "id": "potion",
+      "durability": 1
+    },
+    {
+      "id": "potion",
+      "durability": 2
+    },
+    {
+      "id": "bandage",
+      "durability": 3
+    },
+    {
+      "id": "bandage",
+      "durability": 4
+    },
+    {
+      "id": "potion2",
+      "durability": 1
+    },
+    {
+      "id": "oldAxe",
+      "durability": 0
+    },
+    {
+      "id": "oldBandage",
+      "durability": 2
+    }
+  ],
+  "itemsQuestion": [
+    {
+      "id": "dagger",
+      "durability": 0
+    },
+    {
+      "id": "bow",
+      "durability": 0
+    },
+    {
+      "id": "silverSword",
+      "durability": 0
+    },
+    {
+      "id": "goldenApple",
+      "durability": 1
+    },
+    {
+      "id": "goldenApple",
+      "durability": 1
+    },
+    {
+      "id": "potion",
+      "durability": 1
+    },
+    {
+      "id": "potion",
+      "durability": 2
+    },
+    {
+      "id": "bandage",
+      "durability": 3
+    },
+    {
+      "id": "bandage",
+      "durability": 4
+    }
   ]
 }

@@ -4,6 +4,7 @@ import characters.Enemy;
 import characters.Player;
 import com.google.gson.Gson;
 import items.Item;
+import items.ItemId;
 import rooms.FightRoom;
 import rooms.ItemRoom;
 
@@ -22,6 +23,9 @@ public class GameData {
     public Player player;
     public ArrayList<FightRoom> fightRooms;
     public ArrayList<ItemRoom> itemRooms;
+    public ArrayList<ItemId> itemsInChest;
+    public ArrayList<ItemId> itemsQuestion;
+
 
     /**
      * Loads game data from a JSON file.

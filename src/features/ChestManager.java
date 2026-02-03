@@ -1,6 +1,6 @@
 package features;
 
-import core.GameData;
+import core.Game;
 import items.Item;
 
 import java.util.LinkedList;
@@ -11,13 +11,32 @@ public class ChestManager {
     private Queue<Item> queue2;
     private Queue<Item> queue3;
 
-    public ChestManager(GameData gameData) {
+    public ChestManager(Game game) {
         queue1 = new LinkedList<>();
         queue2 = new LinkedList<>();
         queue3 = new LinkedList<>();
-        queue1.add(gameData.items.get(0));
-        queue2.add(gameData.items.get(1));
         //TODO add items to queue
+
+        for (int i = 0; i < 5; i++) {
+            Item item = game.getItemParser().getItem(game.getGameData().itemsInChest.get(i).getId()).copyOfItem();
+            if (game.getGameData().itemsInChest.get(i).getDurability() != 0) {
+                item.setDurability(game.getGameData().itemsInChest.get(i).getDurability());
+            }
+            queue1.add(item);
+        }
+        for (int i = 5; i < 10; i++) {
+            Item item = game.getItemParser().getItem(game.getGameData().itemsInChest.get(i).getId()).copyOfItem();
+            if (game.getGameData().itemsInChest.get(i).getDurability() != 0) {
+                item.setDurability(game.getGameData().itemsInChest.get(i).getDurability());
+            }
+            queue2.add(item);
+        }
+        Item item = game.getItemParser().getItem(game.getGameData().itemsInChest.get(10).getId()).copyOfItem();
+        if (game.getGameData().itemsInChest.get(10).getDurability() != 0) {
+            item.setDurability(game.getGameData().itemsInChest.get(10).getDurability());
+        }
+        queue3.add(item);
+
 
     }
 
@@ -44,9 +63,21 @@ public class ChestManager {
     public Item pick(String num) {
         Item item;
         switch (num) {
-            case "1" -> item = queue1.poll();
-            case "2" -> item = queue2.poll();
-            case "3" -> item = queue3.poll();
+            case "1" -> {
+                item = queue1.poll();
+                queue3.offer(queue2.poll());
+                queue3.offer(queue3.poll());
+            }
+            case "2" -> {
+                item = queue2.poll();
+                queue3.offer(queue1.poll());
+                queue3.offer(queue3.poll());
+            }
+            case "3" -> {
+                item = queue3.poll();
+                queue3.offer(queue2.poll());
+                queue3.offer(queue1.poll());
+            }
             default -> {
                 return null;
             }

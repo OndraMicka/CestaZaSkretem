@@ -14,7 +14,7 @@ public class ChestCommand implements Command {
 
     public ChestCommand(Game game) {
         this.game = game;
-        chestManager = new ChestManager(game.getGameData());
+        chestManager = new ChestManager(game);
     }
 
     @Override

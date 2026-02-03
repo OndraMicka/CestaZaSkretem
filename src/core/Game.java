@@ -19,7 +19,7 @@ public class Game {
     private final Queue<Room> rooms;
     private final Player player;
     private final GameData gameData;
-
+    private final ItemParser itemParser;
     /**
      * Loads game data from json,
      * adds all rooms to queue.
@@ -28,7 +28,7 @@ public class Game {
         gameData = GameData.loadGameDataFromResources("resources/gameData.json");
         player = gameData.player;
 
-        ItemParser itemParser = new ItemParser(this);
+        itemParser = new ItemParser(this);
         for (int i = 0; i < gameData.enemies.size(); i++) {
             Enemy enemy = gameData.enemies.get(i);
             for (String id : enemy.getItemsID()) {
@@ -83,5 +83,9 @@ public class Game {
      */
     public Room getCurrentRoom(){
         return rooms.peek();
+    }
+
+    public ItemParser getItemParser() {
+        return itemParser;
     }
 }
