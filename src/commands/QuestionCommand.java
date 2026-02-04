@@ -1,6 +1,6 @@
-package core;
+package commands;
 
-import commands.Command;
+import core.Game;
 
 public class QuestionCommand implements Command {
 
@@ -13,5 +13,9 @@ public class QuestionCommand implements Command {
     public String execute() {
         //todo
         return "neni hotovo";
+    }
+    @Override
+    public boolean exit() {
+        return false;
     }
 }

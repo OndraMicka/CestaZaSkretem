@@ -1,10 +1,9 @@
-package core;
+package commands;
 
-import commands.Command;
+import core.Game;
 import features.ChestManager;
 import items.Item;
 import rooms.ItemRoom;
-import rooms.Room;
 
 import java.util.Scanner;
 
@@ -42,5 +41,9 @@ public class ChestCommand implements Command {
         }else{
             return "Kolem tebe žádná truhla není.";
         }
+    }
+    @Override
+    public boolean exit() {
+        return false;
     }
 }

@@ -23,6 +23,8 @@ public class Console {
      */
     public void start() {
         printOutFile("resources/introduction.txt");
+
+        boolean exit = false;
         do {
             System.out.print(">>");
             String read = sc.nextLine();
@@ -34,21 +36,24 @@ public class Console {
                     .toLowerCase();
             //-----
             String result = commandManager.execute(read);
+            exit = commandManager.exit(read);
             if (result == null) {
                 System.out.println("Neznámý příkaz, napiš 'pomoc' pro vypsání příkazů.");
             } else {
                 System.out.println(result);
             }
-        } while (game.getCurrentRoom() != null);
+        } while (game.getCurrentRoom() != null & !exit);
 
-        printOutFile("resources/end.txt");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        if (!exit) {
+            printOutFile("resources/end.txt");
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+            printOutFile("resources/endPart2.txt");
         }
-
-        printOutFile("resources/endPart2.txt");
     }
 
     /**

@@ -1,6 +1,6 @@
-package core;
+package commands;
 
-import commands.Command;
+import core.Game;
 
 public class FightCommand implements Command {
     private Game game;
@@ -14,6 +14,9 @@ public class FightCommand implements Command {
         //todo
         return "neni hotovo";
     }
-
+    @Override
+    public boolean exit() {
+        return false;
+    }
 
 }

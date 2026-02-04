@@ -12,4 +12,9 @@ public class LookAroundCommand implements Command{
     public LookAroundCommand(Game game){
         this.game = game;
     }
+
+    @Override
+    public boolean exit() {
+        return false;
+    }
 }

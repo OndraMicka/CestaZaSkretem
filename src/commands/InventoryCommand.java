@@ -14,4 +14,9 @@ public class InventoryCommand implements Command{
     public String execute() {
         return player.getInventory().toString();
     }
+
+    @Override
+    public boolean exit() {
+        return false;
+    }
 }

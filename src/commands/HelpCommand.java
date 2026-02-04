@@ -18,4 +18,9 @@ public class HelpCommand implements Command {
         }
         return text;
     }
+
+    @Override
+    public boolean exit() {
+        return false;
+    }
 }

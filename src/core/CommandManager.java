@@ -35,4 +35,12 @@ public class CommandManager {
         return command.execute();
     }
 
+    public boolean exit(String commandName) {
+        Command command = commands.get(commandName);
+        if (command == null) {
+            return false;
+        }
+        return command.exit();
+    }
+
 }

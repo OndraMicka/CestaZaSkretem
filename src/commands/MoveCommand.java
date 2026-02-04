@@ -31,4 +31,8 @@ public class MoveCommand implements Command {
         game.goToNextRoom();
         return "*Jdeš dál.";
     }
+    @Override
+    public boolean exit() {
+        return false;
+    }
 }

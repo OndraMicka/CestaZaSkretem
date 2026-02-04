@@ -38,7 +38,7 @@ public class Inventory {
                         return;
                     }
 
-                }catch (InputMismatchException _) {
+                }catch (InputMismatchException e) {
                     System.out.println("Zadej číslo.");
                     scanner.nextLine();
                 }
