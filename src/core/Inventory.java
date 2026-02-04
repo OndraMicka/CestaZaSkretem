@@ -32,13 +32,13 @@ public class Inventory {
                         System.out.println("Zahodil jsi předmět.");
                         return;
                     }
-                    if (removeItem(choice)){
+                    if (removeItem(choice - 1)) {
                         addItem(item);
                         System.out.println("Vyměnil jsi si předmět za nový.");
                         return;
                     }
 
-                }catch (InputMismatchException e) {
+                } catch (InputMismatchException e) {
                     System.out.println("Zadej číslo.");
                     scanner.nextLine();
                 }
@@ -73,15 +73,15 @@ public class Inventory {
         if (items == null) {
             items = new ArrayList<>();
         }
-        if (capacity > items.size()) {
-            if (item.getType() == ItemType.HEAL) {
-                for (Item itemInList : items) {
-                    if (item.getName().equals(itemInList.getName())) {
-                        itemInList.setDurability(itemInList.getDurability() + item.getDurability());
-                        return true;
-                    }
+        if (item.getType() == ItemType.HEAL) {
+            for (Item itemInList : items) {
+                if (item.getName().equals(itemInList.getName())) {
+                    itemInList.setDurability(itemInList.getDurability() + item.getDurability());
+                    return true;
                 }
             }
+        }
+        if (capacity > items.size()) {
             items.add(item);
             return true;
         }
@@ -105,23 +105,36 @@ public class Inventory {
     }
 
     /**
-     * Uses item. Lowers durability or removes item if durability was 1.which
+     * Uses item. Lowers durability or removes item if durability was 1.
      *
      * @param index    index of item in list
      * @param attacker Game character which is attacking.
      * @param attacked Game character to be attacked.
+     * @return If wrong index was given, returns false.
      */
-    public void use(int index, GameCharacter attacker, GameCharacter attacked) {
-        Item item = items.get(index);
-        if (item.getDurability() == 1) {
-            items.remove(index);
-        } else {
-            items.get(index).setDurability(item.getDurability() - 1);
+    public boolean use(int index, GameCharacter attacker, GameCharacter attacked) {
+        try {
+            Item item = items.get(index);
+            if (item.getDurability() == 1) {
+                items.remove(index);
+            } else {
+                items.get(index).setDurability(item.getDurability() - 1);
+            }
+            item.use(attacker, attacked);
+            System.out.println(attacker.getName() + " použil: " + item.getName());
+            return true;
+        } catch (Exception _) {
+            return false;
         }
-        item.use(attacker, attacked);
+
+
     }
 
     public int getCapacity() {
         return capacity;
+    }
+
+    public int getSize() {
+        return items.size();
     }
 }

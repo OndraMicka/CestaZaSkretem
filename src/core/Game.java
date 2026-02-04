@@ -47,9 +47,9 @@ public class Game {
 
         rooms = new LinkedList<>();
         for (int i = 0; i < 3; i++) {
-            rooms.add(gameData.itemRooms.get(i));
-            rooms.add(gameData.itemRooms.get(i+1));
-            rooms.add(gameData.itemRooms.get(i+2));
+            rooms.add(gameData.itemRooms.get(i*3));
+            rooms.add(gameData.itemRooms.get(i*3+1));
+            rooms.add(gameData.itemRooms.get(i*3+2));
             rooms.add(gameData.fightRooms.get(i));
         }
         rooms.add(gameData.fightRooms.get(3));

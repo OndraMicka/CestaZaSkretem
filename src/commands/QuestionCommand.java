@@ -29,9 +29,9 @@ public class QuestionCommand implements Command {
                 String answer = scanner.nextLine();
                 Item item = questionManager.answer(answer);
                 if (item != null) {
-                    game.getPlayer().getInventory().addItem(item);
+                    game.getPlayer().getInventory().addItemInteractive(item);
                     room.setQuestionAsked(true);
-                    return item.getPrintInfo();
+                    return "";
                 }
                 return "";
             } else {

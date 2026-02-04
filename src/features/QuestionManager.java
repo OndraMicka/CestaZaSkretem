@@ -43,6 +43,7 @@ public class QuestionManager {
                 .toLowerCase();
         if (question.getAnswers().contains(answer)){
             System.out.println("Kouzelník: Správně, zde je tvůj item.");
+            System.out.println(question.getItem().getPrintInfo());
             return question.getItem();
         }
         System.out.println(question.getText());

@@ -22,6 +22,9 @@ public class Console {
      * Prints out end of the game.
      */
     public void start() {
+        System.out.print("Zadej jméno hráče:");
+        game.getPlayer().setName(sc.nextLine());
+        System.out.println("\n");
         printOutFile("resources/introduction.txt");
 
         boolean exit = false;

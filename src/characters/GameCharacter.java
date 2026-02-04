@@ -15,6 +15,7 @@ public abstract class GameCharacter {
     protected int health;
     protected Inventory inventory;
     protected ArrayList<String> itemsID;
+    protected int maxHealth;
 
     public String getName() {
         return name;
@@ -25,6 +26,9 @@ public abstract class GameCharacter {
     }
 
     public void setHealth(int health) {
+        if (health > maxHealth&maxHealth!=0) {
+            health = maxHealth;
+        }
         this.health = health;
     }
 
@@ -37,5 +41,7 @@ public abstract class GameCharacter {
         return itemsID;
     }
 
-
+    public void setName(String name) {
+        this.name = name;
+    }
 }

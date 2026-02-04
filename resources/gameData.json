@@ -155,8 +155,8 @@
         "capacity": 5
       },
       "itemsID": [
-        "sword",
-        "bandage"
+        "bandage",
+        "sword"
       ]
     },
     {
@@ -169,8 +169,8 @@
       "itemsID": [
         "bandage",
         "potion",
-        "mace",
-        "sword"
+        "sword",
+        "mace"
       ]
     }
   ],
