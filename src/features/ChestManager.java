@@ -15,7 +15,6 @@ public class ChestManager {
         queue1 = new LinkedList<>();
         queue2 = new LinkedList<>();
         queue3 = new LinkedList<>();
-        //TODO add items to queue
 
         for (int i = 0; i < 5; i++) {
             Item item = game.getItemParser().getItem(game.getGameData().itemsInChest.get(i).getId()).copyOfItem();

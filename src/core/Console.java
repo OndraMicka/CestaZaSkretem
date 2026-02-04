@@ -17,9 +17,9 @@ public class Console {
     private final CommandManager commandManager;
 
     /**
-     * Prints out story. TODO
+     * Prints out story.
      * Starts game loop.
-     * Prints out end of the game. TODO
+     * Prints out end of the game.
      */
     public void start() {
         printOutFile("resources/introduction.txt");

@@ -1,0 +1,123 @@
+{
+  "questions": [
+    {
+      "question": "Dokončete řadu: 1, 1, 2, 3, 5, 8, ... ?",
+      "text": "Kouzelník zamrmlal: 'Číslo 13!'",
+      "answers": [
+        "13",
+        "trinact"
+      ],
+      "itemId": {
+        "id": "potion",
+        "durability": 2
+      }
+    },
+    {
+      "question": "Kouzelník: 'Co patří tobě, ale ostatní to používají víc než ty?'",
+      "text": "Kouzelník se ušklíbl: 'To je tvé vlastní jméno.'",
+      "answers": [
+        "jmeno",
+        "vlastnijmeno",
+        "mojejmeno"
+      ],
+      "itemId": {
+        "id": "dagger",
+        "durability": 0
+      }
+    },
+    {
+      "question": "Kouzelník: 'Když to máš, chceš se o to podělit. Když se o to podělíš, už to nemáš. Co je to?'",
+      "text": "Kouzelník: 'Je to tajemství.'",
+      "answers": [
+        "tajemstvi",
+        "tajnost"
+      ],
+      "itemId": {
+        "id": "bandage",
+        "durability": 4
+      }
+    },
+    {
+      "question": "Kouzelník: 'Čím víc toho je, tím míň vidíš. Co je to?'",
+      "text": "Kouzelník si povzdechl: 'Je to tma.'",
+      "answers": [
+        "tma",
+        "temnota",
+        "temno"
+      ],
+      "itemId": {
+        "id": "silverSword",
+        "durability": 0
+      }
+    },
+    {
+      "question": "Kouzelník: 'Kolikrát můžeš odečíst číslo 5 od čísla 25?'",
+      "text": "Kouzelník se zasmál: 'Jen jednou! Pak už totiž odečítáš od dvaceti.'",
+      "answers": [
+        "1",
+        "jednou",
+        "jedna",
+        "1x",
+        "jenjednou"
+      ],
+      "itemId": {
+        "id": "goldenApple",
+        "durability": 1
+      }
+    },
+    {
+      "question": "Kouzelník: 'Pokud 3 kočky chytí 3 myši za 3 minuty, za jak dlouho chytí 100 koček 100 myší?'",
+      "text": "Kouzelník pokrčil rameny: 'Stále za 3 minuty. Kočky přece nepracují pomaleji, když je jich víc.'",
+      "answers": [
+        "3",
+        "tri",
+        "3minuty",
+        "triminuty",
+        "za3minuty"
+      ],
+      "itemId": {
+        "id": "goldenApple",
+        "durability": 1
+      }
+    },
+    {
+      "question": "Kouzelník: 'Cihla váží kilo a půl cihly. Kolik váží cihla?'",
+      "text": "Kouzelník si klepe na čelo: 'Cihla váží 2 kila. Trochu matematiky by ti neškodilo.'",
+      "answers": [
+        "2",
+        "dve",
+        "2kila",
+        "2kg",
+        "dvekila"
+      ],
+      "itemId": {
+        "id": "potion",
+        "durability": 1
+      }
+    },
+    {
+      "question": "Kouzelník: 'V místnosti jsou 4 rohy. V každém rohu sedí kočka. Před každou kočkou sedí 3 kočky. Kolik je v místnosti celkem koček?'",
+      "text": "Kouzelník zakroutil hlavou: 'Jsou to pořád jen ty 4 kočky v rozích!'",
+      "answers": [
+        "4",
+        "ctyri",
+        "ctyrikocky"
+      ],
+      "itemId": {
+        "id": "bow",
+        "durability": 0
+      }
+    },
+    {
+      "question": "Kouzelník: 'Kdo ho vyrobí, ten ho nepotřebuje. Kdo ho koupí, ten ho nepoužije. Kdo ho použije, ten o tom neví. Co je to?'",
+      "text": "Kouzelník: 'Je to rakev.'",
+      "answers": [
+        "rakev"
+      ],
+      "itemId": {
+        "id": "bandage",
+        "durability": 3
+      }
+    }
+  ]
+}

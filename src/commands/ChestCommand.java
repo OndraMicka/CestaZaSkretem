@@ -36,10 +36,10 @@ public class ChestCommand implements Command {
 
 
             }else {
-                return "Už jsi truhlu otevřel.";
+                return "*Už jsi truhlu otevřel.";
             }
         }else{
-            return "Kolem tebe žádná truhla není.";
+            return "*Kolem tebe žádná truhla není.";
         }
     }
     @Override

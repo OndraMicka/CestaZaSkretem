@@ -35,10 +35,7 @@ public class GameData {
     public static GameData loadGameDataFromResources(String resourcePath) {
         Gson gson = new Gson();
         try (Reader rd = new FileReader(resourcePath)) {
-            return gson.fromJson(
-                    rd,
-                    GameData.class
-            );
+            return gson.fromJson(rd, GameData.class);
         } catch (Exception e) {
             throw new RuntimeException("Chyba při načítání JSON: " + e.getMessage());
         }

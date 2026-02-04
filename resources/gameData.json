@@ -266,43 +266,5 @@
       "id": "oldBandage",
       "durability": 2
     }
-  ],
-  "itemsQuestion": [
-    {
-      "id": "dagger",
-      "durability": 0
-    },
-    {
-      "id": "bow",
-      "durability": 0
-    },
-    {
-      "id": "silverSword",
-      "durability": 0
-    },
-    {
-      "id": "goldenApple",
-      "durability": 1
-    },
-    {
-      "id": "goldenApple",
-      "durability": 1
-    },
-    {
-      "id": "potion",
-      "durability": 1
-    },
-    {
-      "id": "potion",
-      "durability": 2
-    },
-    {
-      "id": "bandage",
-      "durability": 3
-    },
-    {
-      "id": "bandage",
-      "durability": 4
-    }
   ]
 }
