@@ -23,14 +23,12 @@ public class CombatSystem {
             System.out.println(player.getInventory());
             System.out.println("Zadej číslo předmětu, který chceš použít.");
             int choice = 0;
-            System.out.print(">>");
-            try {
-                choice = scanner.nextInt();
-            } catch (InputMismatchException e) {
-
-            }
-            System.out.println("\n".repeat(15));
-            player.getInventory().use(choice - 1, player, enemy);
+            do {
+                System.out.print(">>");
+                try {
+                    choice = Integer.parseInt(scanner.nextLine());
+                } catch (Exception _) {}
+            }while (!player.getInventory().use(choice - 1, player, enemy));
 
             if (enemy.getHealth() > 0) {
                 if (enemy.getHealth() > 40) {

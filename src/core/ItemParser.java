@@ -5,6 +5,9 @@ import items.Item;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Stores all items, returns Item from provided String id of item
+ */
 public class ItemParser {
     private HashMap<String, Item> items;
 
@@ -18,6 +21,12 @@ public class ItemParser {
 
     }
 
+    /**
+     * Returns Item from given id.
+     * @param id of item (stored in gameData.json)
+     * @return Copy of item.
+     * @throws NullPointerException
+     */
     public Item getItem(String id) throws NullPointerException {
         Item item = items.get(id);
         if(item == null) {

@@ -7,6 +7,9 @@ import rooms.ItemRoom;
 
 import java.util.Scanner;
 
+/**
+ * Command to ask question.
+ */
 public class QuestionCommand implements Command {
 
     private final Game game;
@@ -19,6 +22,14 @@ public class QuestionCommand implements Command {
         scanner = new Scanner(System.in);
     }
 
+    /**
+     * Checks whether the player is in the correct room and has not already asked a question.
+     * Displays question for player.
+     * Allows the player to answer.
+     * If correct, returns item to player inventory.
+     * {@link core.Inventory#addItemInteractive(Item)}.
+     * @return reason why the question cannot be asked, or null if told
+     */
     @Override
     public String execute() {
         if (game.getCurrentRoom().getClass().equals(ItemRoom.class)) {

@@ -113,6 +113,7 @@ public class Inventory {
      * @return If wrong index was given, returns false.
      */
     public boolean use(int index, GameCharacter attacker, GameCharacter attacked) {
+        System.out.println("\n".repeat(20));
         try {
             Item item = items.get(index);
             if (item.getDurability() == 1) {

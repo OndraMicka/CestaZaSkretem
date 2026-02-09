@@ -2,11 +2,8 @@ package core;
 
 import characters.Enemy;
 import characters.Player;
-
 import rooms.FightRoom;
-import rooms.ItemRoom;
 import rooms.Room;
-
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -20,9 +17,11 @@ public class Game {
     private final Player player;
     private final GameData gameData;
     private final ItemParser itemParser;
+
     /**
      * Loads game data from json,
      * adds all rooms to queue.
+     * Parses Items, Enemies from string IDs.
      */
     public Game() {
         gameData = GameData.loadGameDataFromResources("resources/gameData.json");
@@ -41,28 +40,20 @@ public class Game {
         }
 
         EnemyParser enemyParser = new EnemyParser(this);
-        for (FightRoom fightRoom:gameData.fightRooms) {
+        for (FightRoom fightRoom : gameData.fightRooms) {
             fightRoom.setEnemy(enemyParser.getEnemy(fightRoom.getEnemyName()));
         }
 
         rooms = new LinkedList<>();
         for (int i = 0; i < 3; i++) {
-            rooms.add(gameData.itemRooms.get(i*3));
-            rooms.add(gameData.itemRooms.get(i*3+1));
-            rooms.add(gameData.itemRooms.get(i*3+2));
+            rooms.add(gameData.itemRooms.get(i * 3));
+            rooms.add(gameData.itemRooms.get(i * 3 + 1));
+            rooms.add(gameData.itemRooms.get(i * 3 + 2));
             rooms.add(gameData.fightRooms.get(i));
         }
         rooms.add(gameData.fightRooms.get(3));
 
 
-    }
-
-    public Queue<Room> getRooms() {
-        return rooms;
-    }
-
-    public Player getPlayer() {
-        return player;
     }
 
     public GameData getGameData() {
@@ -71,21 +62,31 @@ public class Game {
 
     /**
      * moves player to the next room
+     *
      * @return if queue is empty, returns false, used for game loop to stop
      */
-    public boolean goToNextRoom(){
+    public boolean goToNextRoom() {
         return rooms.poll() != null;
     }
 
     /**
      * returns actual room where player is.
+     *
      * @return FightRoom or ItemRoom
      */
-    public Room getCurrentRoom(){
+    public Room getCurrentRoom() {
         return rooms.peek();
     }
 
     public ItemParser getItemParser() {
         return itemParser;
+    }
+
+    public Queue<Room> getRooms() {
+        return rooms;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }

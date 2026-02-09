@@ -3,6 +3,9 @@ package commands;
 import characters.Player;
 import core.Game;
 
+/**
+ * Command that shows inventory of player
+ */
 public class InventoryCommand implements Command{
     private Player player;
 

@@ -2,6 +2,9 @@ package commands;
 
 import core.Game;
 
+/**
+ * Prints out text with info (what is around player)
+ */
 public class LookAroundCommand implements Command{
     private final Game game;
     @Override

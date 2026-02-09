@@ -10,6 +10,10 @@ public interface Command {
      */
     String execute();
 
+    /**
+     * If returns true, should end game loop and program.
+     * @return
+     */
     boolean exit();
 
 }

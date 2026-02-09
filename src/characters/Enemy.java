@@ -1,12 +1,7 @@
 package characters;
 
-import core.Inventory;
-
-import java.util.ArrayList;
-
-public class Enemy extends GameCharacter{
+public class Enemy extends GameCharacter {
     private String info;
-
 
 
     @Override

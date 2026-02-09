@@ -7,6 +7,9 @@ import rooms.ItemRoom;
 
 import java.util.Scanner;
 
+/**
+ * Command for opening chests and giving player items.
+ */
 public class ChestCommand implements Command {
     private Game game;
     private ChestManager chestManager;
@@ -16,6 +19,15 @@ public class ChestCommand implements Command {
         chestManager = new ChestManager(game);
     }
 
+    /**
+     * Checks whether the player is in the correct room and has not already opened the chest.
+     * Displays three items for the player to choose from.
+     * Allows the player to select one item by index.
+     * The selected item is added to the player's inventory using
+     * {@link core.Inventory#addItemInteractive(Item)}.
+     *
+     * @return reason why the chest cannot be opened, or null if successful
+     */
     @Override
     public String execute() {
         if (game.getCurrentRoom().getClass().equals(ItemRoom.class)) {

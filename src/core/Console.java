@@ -17,8 +17,10 @@ public class Console {
     private final CommandManager commandManager;
 
     /**
+     * Lets player chose name.
      * Prints out story.
      * Starts game loop.
+     * From given string executes command.
      * Prints out end of the game.
      */
     public void start() {
@@ -78,6 +80,10 @@ public class Console {
 
     }
 
+    /**
+     * Method to read all text from provided file.
+     * @param fileName path to file
+     */
     private void printOutFile(String fileName) {
         try {
             BufferedReader br = new BufferedReader(new FileReader(fileName));

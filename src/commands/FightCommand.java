@@ -3,8 +3,10 @@ package commands;
 import core.Game;
 import features.CombatSystem;
 import rooms.FightRoom;
-import rooms.ItemRoom;
 
+/**
+ * Command that starts fight (player x enemy)
+ */
 public class FightCommand implements Command {
     private Game game;
     private boolean exit = false;
@@ -14,12 +16,17 @@ public class FightCommand implements Command {
         this.game = game;
     }
 
+    /**
+     * Checks whether the player is in the correct room and has not already fought the enemy.
+     * Starts fight.
+     * @return reason why player cant fight, or null if successful
+     */
     @Override
     public String execute() {
         if (game.getCurrentRoom().getClass().equals(FightRoom.class)) {
             FightRoom room = (FightRoom) game.getCurrentRoom();
-            if (room.getEnemy().getHealth()>0) {
-                combatSystem =new CombatSystem(game.getPlayer(), ((FightRoom) game.getCurrentRoom()).getEnemy());
+            if (room.getEnemy().getHealth() > 0) {
+                combatSystem = new CombatSystem(game.getPlayer(), ((FightRoom) game.getCurrentRoom()).getEnemy());
                 exit = !combatSystem.startFight();
                 return "";
             } else {

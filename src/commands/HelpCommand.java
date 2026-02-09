@@ -3,6 +3,9 @@ package commands;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+/**
+ * Provides text with commands for player that he can use.
+ */
 public class HelpCommand implements Command {
     @Override
     public String execute() {
