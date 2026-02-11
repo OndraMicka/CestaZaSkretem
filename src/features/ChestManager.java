@@ -6,11 +6,22 @@ import items.Item;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * Manages item picking from chest.
+ * Chest is divided into 3 queues.
+ */
 public class ChestManager {
     private Queue<Item> queue1;
     private Queue<Item> queue2;
     private Queue<Item> queue3;
 
+    /**
+     * Adds all items to queues from GameData.itemsInChest
+     * queue 1 - first 5 items
+     * queue 2 - next 5 items
+     * queue 3 - only one item
+     * @param game instance of Game, for loading data and itemParser
+     */
     public ChestManager(Game game) {
         queue1 = new LinkedList<>();
         queue2 = new LinkedList<>();
@@ -39,6 +50,10 @@ public class ChestManager {
 
     }
 
+    /**
+     * Prints out 3 available items from queues with method peek()
+     * @return
+     */
     public String getInfoItems() {
         String info1 = "xxx";
         String info2 = "xxx";
@@ -59,6 +74,12 @@ public class ChestManager {
         return info;
     }
 
+    /**
+     * Returns item and removes it from queue.
+     * Not picked items rotates to the end of 3rd queue.
+     * @param num String index of item("1","2","3").
+     * @return Null if num does not mach any index otherwise returns item from queue.
+     */
     public Item pick(String num) {
         Item item;
         switch (num) {

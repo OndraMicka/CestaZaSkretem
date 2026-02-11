@@ -1,5 +1,9 @@
 package rooms;
 
+/**
+ * Room containing a chest with items.
+ * Tracks whether chest was opened and whether player was asked a question.
+ */
 public class ItemRoom extends Room {
     private boolean chestOpened;
     private boolean questionAsked;

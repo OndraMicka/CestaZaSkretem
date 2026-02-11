@@ -2,19 +2,24 @@ package features;
 
 import com.google.gson.Gson;
 import core.Game;
-import core.GameData;
-import core.ItemParser;
 import items.Item;
 
 import java.io.FileReader;
 import java.io.Reader;
 import java.text.Normalizer;
-import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * Manages questions for player.
+ */
 public class QuestionManager {
     private final Queue<Question> questions;
 
+    /**
+     * Adds all questions from json.
+     * Parses all items in questions from itemID.
+     * @param game Instance of game for itemParser
+     */
     public QuestionManager(Game game) {
         Gson gson = new Gson();
         try (Reader rd = new FileReader("resources/questions.json")) {
@@ -35,13 +40,18 @@ public class QuestionManager {
         return questions.peek().getQuestion();
     }
 
+    /**
+     * Controls if given answer matches any of possible answers.
+     * @param answer String answer from player.
+     * @return Item if right, null if wrong
+     */
     public Item answer(String answer) {
         Question question = questions.poll();
         answer = Normalizer.normalize(answer, Normalizer.Form.NFD)
                 .replaceAll("\\p{M}", "")
                 .replaceAll("\\s+", "")
                 .toLowerCase();
-        if (question.getAnswers().contains(answer)){
+        if (question.getAnswers().contains(answer)) {
             System.out.println("Kouzelník: Správně, zde je tvůj item.");
             System.out.println(question.getItem().getPrintInfo());
             return question.getItem();

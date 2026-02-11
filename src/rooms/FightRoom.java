@@ -2,6 +2,10 @@ package rooms;
 
 import characters.Enemy;
 
+/**
+ * Room where player fights an enemy.
+ * Stores enemy instance.
+ */
 public class FightRoom extends Room {
     private Enemy enemy;
     private String enemyName;

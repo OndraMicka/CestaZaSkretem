@@ -5,6 +5,10 @@ import items.ItemId;
 
 import java.util.ArrayList;
 
+/**
+ * Used for storing question for QuestionManager.
+ * Stores question, all possible answers, text shown if player answers wrong, item to receive and id of that item.
+ */
 public class Question {
     private String question;
     private ArrayList<String> answers;

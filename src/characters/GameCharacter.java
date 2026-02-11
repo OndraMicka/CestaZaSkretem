@@ -43,5 +43,11 @@ public abstract class GameCharacter {
         return itemsID;
     }
 
+    public int getMaxHealth() {
+        return maxHealth;
+    }
 
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
 }

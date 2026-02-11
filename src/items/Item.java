@@ -3,7 +3,11 @@ package items;
 import characters.GameCharacter;
 
 import java.util.Random;
-
+/**
+ * Represents usable game item.
+ * Item can heal, deal damage or apply special effects depending on MethodType.
+ * Each item has durability, represents how many times can player item use.
+ */
 public class Item {
     private String name;
     private ItemType type;
@@ -13,7 +17,10 @@ public class Item {
     private String info;
     private int durability;
 
-
+    /**
+     * Creates copy of item.
+     * @return new Item instance with the same values
+     */
     public Item copyOfItem() {
         Item newItem = new Item();
         newItem.name = this.name;
@@ -26,6 +33,70 @@ public class Item {
         return newItem;
 
     }
+    /**
+     * Returns formatted string used for printing item in console.
+     * @return printable item info or null if something wrong
+     */
+    public String getPrintInfo() {
+        try {
+            if (getType() == ItemType.HEAL) {
+                return getDurability() + "x " + getInfo();
+            } else {
+                return getInfo() + ", životnost: " + getDurability();
+            }
+        } catch (NullPointerException _) {
+            return null;
+        }
+    }
+
+
+     /**
+     * Uses item and applies its effect.
+     * Effect depends on MethodType.
+     *
+     * @param attacker Game character who is attacking
+     * @param attacked Game character who is attacked
+     */
+
+    public void use(GameCharacter attacker, GameCharacter attacked) {
+        Random rd = new Random();
+        switch (method) {
+            case HEAL -> attacker.setHealth(attacker.getHealth() + healthAmount);
+            case ATTACK -> attacked.setHealth(attacked.getHealth() - healthAmount);
+            case BOW -> {
+                // 2/3 chance to hit
+                if (!(rd.nextInt(3) == 0)) {
+                    attacked.setHealth(attacked.getHealth() - healthAmount);
+                }
+            }
+            case MAGIC_WAND -> {
+                // 1/3 chance to hurt attacker instead
+                if (rd.nextInt(3) == 0) {
+                    attacker.setHealth(attacker.getHealth() - healthAmount);
+                } else {
+                    attacked.setHealth(attacked.getHealth() - healthAmount);
+                }
+            }
+            case LUCKY_POTION -> {
+                // 50% heal / 50% damage self
+                if (rd.nextBoolean()) {
+                    attacker.setHealth(attacker.getHealth() + healthAmount);
+                } else {
+                    attacker.setHealth(attacker.getHealth() - healthAmount);
+                }
+            }
+            case SILVER_SWORD -> {
+                // bonus damage to goblin
+                if (attacked.getName().equals("Skřet")) {
+                    attacked.setHealth(attacked.getHealth() - 40);
+                } else {
+                    attacked.setHealth(attacked.getHealth() - healthAmount);
+                }
+            }
+            default -> throw new IllegalArgumentException("invalid method: " + method);
+        }
+    }
+
 
     public String getInfo() {
         return info;
@@ -62,60 +133,24 @@ public class Item {
                 ", durability=" + durability +
                 '}';
     }
-    public String getPrintInfo() {
-        try {
-            if (getType() == ItemType.HEAL) {
-                return getDurability() + "x " + getInfo();
-            } else {
-                return getInfo() + ", životnost: " + getDurability();
-            }
-        }catch (NullPointerException _) {
-            return null;
-        }
+
+    public MethodType getMethod() {
+        return method;
     }
 
-    /**
-     * Uses item.
-     *
-     * @param attacker Game character who is attacking
-     * @param attacked Game character who is attacked
-     */
-
-    public void use(GameCharacter attacker, GameCharacter attacked) {
-        Random rd = new Random();
-        switch (method) {
-            case HEAL -> attacker.setHealth(attacker.getHealth() + healthAmount);
-            case ATTACK -> attacked.setHealth(attacked.getHealth() - healthAmount);
-            case BOW -> {
-                if (!(rd.nextInt(3) == 0)) {
-                    attacked.setHealth(attacked.getHealth() - healthAmount);
-                }
-            }
-            case MAGIC_WAND -> {
-                if (rd.nextInt(3) == 0) {
-                    attacker.setHealth(attacker.getHealth() - healthAmount);
-                } else {
-                    attacked.setHealth(attacked.getHealth() - healthAmount);
-                }
-            }
-            case LUCKY_POTION -> {
-                if (rd.nextBoolean()) {
-                    attacker.setHealth(attacker.getHealth() + healthAmount);
-                } else {
-                    attacker.setHealth(attacker.getHealth() - healthAmount);
-                }
-            }
-            case SILVER_SWORD -> {
-                if (attacked.getName().equals("Skřet")) {
-                    attacked.setHealth(attacked.getHealth() - 40);
-                } else {
-                    attacked.setHealth(attacked.getHealth() - healthAmount);
-                }
-            }
-            default -> throw new IllegalArgumentException("invalid method: " + method);
-        }
+    public void setMethod(MethodType method) {
+        this.method = method;
     }
 
+    public int getHealthAmount() {
+        return healthAmount;
+    }
 
+    public void setHealthAmount(int healthAmount) {
+        this.healthAmount = healthAmount;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 }
