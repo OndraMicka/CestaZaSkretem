@@ -4,8 +4,10 @@ import com.google.gson.Gson;
 import core.Game;
 import items.Item;
 
-import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.text.Normalizer;
 import java.util.Queue;
 
@@ -18,12 +20,19 @@ public class QuestionManager {
     /**
      * Adds all questions from json.
      * Parses all items in questions from itemID.
+     *
      * @param game Instance of game for itemParser
      */
     public QuestionManager(Game game) {
         Gson gson = new Gson();
-        try (Reader rd = new FileReader("resources/questions.json")) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream("questions.json");
+             Reader rd = new InputStreamReader(is, StandardCharsets.UTF_8)) {
+
+            if (is == null) {
+                throw new RuntimeException("Soubor questions.json nebyl nalezen v resources!");
+            }
             questions = gson.fromJson(rd, QuestionManager.class).questions;
+
         } catch (Exception e) {
             throw new RuntimeException("Chyba při načítání JSON: " + e.getMessage());
         }
@@ -42,6 +51,7 @@ public class QuestionManager {
 
     /**
      * Controls if given answer matches any of possible answers.
+     *
      * @param answer String answer from player.
      * @return Item if right, null if wrong
      */

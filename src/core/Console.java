@@ -4,7 +4,9 @@ package core;
 import commands.*;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.text.Normalizer;
 import java.util.Scanner;
 
@@ -27,7 +29,7 @@ public class Console {
         System.out.print("Zadej jméno hráče:");
         game.getPlayer().setName(sc.nextLine());
         System.out.println("\n");
-        printOutFile("resources/introduction.txt");
+        printOutFile("introduction.txt");
 
         boolean exit = false;
         do {
@@ -50,14 +52,14 @@ public class Console {
         } while (game.getCurrentRoom() != null & !exit);
 
         if (!exit) {
-            printOutFile("resources/end.txt");
+            printOutFile("end.txt");
             try {
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
 
-            printOutFile("resources/endPart2.txt");
+            printOutFile("endPart2.txt");
         }
     }
 
@@ -82,17 +84,22 @@ public class Console {
 
     /**
      * Method to read all text from provided file.
+     *
      * @param fileName path to file
      */
     private void printOutFile(String fileName) {
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(fileName));
-            String line = "";
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(fileName)) {
+            if (is == null) {
+                throw new RuntimeException("Soubor nebyl nalezen v JARu: " + fileName);
+            }
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    System.out.println(line);
+                }
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Chyba při čtení textového souboru: " + e.getMessage());
         }
     }
 }

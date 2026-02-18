@@ -1,7 +1,9 @@
 package commands;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Provides text with commands for player that he can use.
@@ -9,17 +11,23 @@ import java.io.FileReader;
 public class HelpCommand implements Command {
     @Override
     public String execute() {
-        String text = "";
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("resources/helpMessage.txt"));
-            String line = "";
-            while ((line = br.readLine())!= null){
-                text += line + "\n";
+        StringBuilder text = new StringBuilder();
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream("helpMessage.txt")) {
+
+            if (is == null) {
+                throw new RuntimeException("Soubor helpMessage.txt nebyl nalezen v JARu!");
+            }
+
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    text.append(line).append("\n");
+                }
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Chyba při načítání nápovědy: " + e.getMessage());
         }
-        return text;
+        return text.toString();
     }
 
     @Override

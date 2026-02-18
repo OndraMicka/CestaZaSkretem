@@ -24,7 +24,7 @@ public class Game {
      * Parses Items, Enemies from string IDs.
      */
     public Game() {
-        gameData = GameData.loadGameDataFromResources("resources/gameData.json");
+        gameData = GameData.loadGameDataFromResources("gameData.json");
         player = gameData.player;
 
         itemParser = new ItemParser(this);

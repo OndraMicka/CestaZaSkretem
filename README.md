@@ -1,7 +1,7 @@
 
 # Cesta za skřetem
 
-Textové RPG o chudém žebrákovi, který se vydá do začarovaného lesa pro skřetův poklad. Cestou mu pomáhá tajemný kouzelník.
+Textové RPG o chudém žebrákovi, který se vydá do začarovaného lesa pro skřetův poklad. Cestou mu pomáhá tajemný kouzelník. Hra používá Command pattern.
 
 ## Autor
 Ondřej Micka
@@ -11,6 +11,7 @@ Ondřej Micka
 * Na závěr se utká se Skřetem.
 
 ## Herní příkazy
+Do konzole pište následující příkazy:
 * pomoc ->            vypíše všechny příkazy s vysvětlením
 * hledat okolo ->        vypíše se vše co se nachází kolem.
 * konec hry ->                               ukončí se hra
@@ -30,4 +31,8 @@ Ondřej Micka
 
 
 ##  Instalace a spuštění hry
-
+Vyžadována Java Runtime Environment (JRE) ve verzi 24 nebo novější.
+* Vytvořte .jar soubor. 
+* Otevřete terminál v dané složce, kde je hra.
+* zadejte příkaz pro přepnutí kódování na UTF-8: chcp 65001
+* zadejte příkaz: java -jar CestaZaSkretem.jar
