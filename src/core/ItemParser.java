@@ -2,13 +2,14 @@ package core;
 
 import items.Item;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * Stores all items, returns Item from provided String id of item
  */
-public class ItemParser {
+public class ItemParser implements Serializable {
     private HashMap<String, Item> items;
 
     public ItemParser(Game game) {

@@ -1,5 +1,7 @@
 package characters;
 
+import java.io.Serializable;
+
 public class Enemy extends GameCharacter {
     private String info;
 

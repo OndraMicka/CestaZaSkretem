@@ -2,13 +2,14 @@ package items;
 
 import characters.GameCharacter;
 
+import java.io.Serializable;
 import java.util.Random;
 /**
  * Represents usable game item.
  * Item can heal, deal damage or apply special effects depending on MethodType.
  * Each item has durability, represents how many times can player item use.
  */
-public class Item {
+public class Item implements Serializable {
     private String name;
     private ItemType type;
     private MethodType method;

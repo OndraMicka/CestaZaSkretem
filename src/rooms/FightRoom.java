@@ -2,6 +2,8 @@ package rooms;
 
 import characters.Enemy;
 
+import java.io.Serializable;
+
 /**
  * Room where player fights an enemy.
  * Stores enemy instance.

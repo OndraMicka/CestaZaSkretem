@@ -2,13 +2,14 @@ package characters;
 
 import core.Inventory;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Abstract class game character, parent class for Player and Enemy.
  * Stores values of character.
  */
-public abstract class GameCharacter {
+public abstract class GameCharacter implements Serializable {
     protected String name;
     protected int health;
     protected Inventory inventory;

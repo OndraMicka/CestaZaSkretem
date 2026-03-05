@@ -11,6 +11,7 @@ import rooms.ItemRoom;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ import java.util.ArrayList;
  * Represents the game data loaded from a JSON file.
  * This class serves as a data container for all static game content, such as items, characters, locations, and quests.
  */
-public class GameData {
+public class GameData implements Serializable {
 
     public ArrayList<Item> items;
     public ArrayList<Enemy> enemies;

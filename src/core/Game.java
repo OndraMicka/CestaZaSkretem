@@ -2,9 +2,11 @@ package core;
 
 import characters.Enemy;
 import characters.Player;
+import core.GameData;
 import rooms.FightRoom;
 import rooms.Room;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -12,11 +14,13 @@ import java.util.Queue;
 /**
  * Stores all rooms player can enter, player and game data.
  */
-public class Game {
+public class Game implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private final Queue<Room> rooms;
     private final Player player;
     private final GameData gameData;
-    private final ItemParser itemParser;
+    private transient ItemParser itemParser;
 
     /**
      * Loads game data from json,
@@ -52,8 +56,30 @@ public class Game {
             rooms.add(gameData.fightRooms.get(i));
         }
         rooms.add(gameData.fightRooms.get(3));
+    }
 
+    /**
+     * Saves the current game state to a file.
+     */
+    public void save(String filePath) {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            out.writeObject(this);
+        } catch (IOException e) {
+            System.err.println("Chyba při ukládání: " + e.getMessage());
+        }
+    }
 
+    /**
+     * Loads the game state from a file.
+     */
+    public static Game load(String filePath) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filePath))) {
+            Game loadedGame = (Game) in.readObject();
+            loadedGame.itemParser = new ItemParser(loadedGame);
+            return loadedGame;
+        } catch (IOException | ClassNotFoundException e) {
+            return null;
+        }
     }
 
     public GameData getGameData() {
@@ -89,5 +115,4 @@ public class Game {
     public Player getPlayer() {
         return player;
     }
-
 }

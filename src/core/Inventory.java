@@ -5,6 +5,7 @@ import characters.Player;
 import items.Item;
 import items.ItemType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -12,8 +13,8 @@ import java.util.Scanner;
 /**
  * Stores all items of game character.
  */
-public class Inventory {
-    private transient ArrayList<Item> items = new ArrayList<>();
+public class Inventory implements Serializable {
+    private ArrayList<Item> items = new ArrayList<>();
     private final int capacity;
 
     public Inventory(int capacity) {

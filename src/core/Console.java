@@ -1,11 +1,8 @@
 package core;
 
-
 import commands.*;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.text.Normalizer;
 import java.util.Scanner;
@@ -14,9 +11,10 @@ import java.util.Scanner;
  * Class control game loop, controls commands.
  */
 public class Console {
-    private final Game game;
+    private Game game;
     private final Scanner sc;
     private final CommandManager commandManager;
+    private final String SAVE_FILE = "savegame.txt";
 
     /**
      * Lets player chose name.
@@ -26,22 +24,26 @@ public class Console {
      * Prints out end of the game.
      */
     public void start() {
-        System.out.print("Zadej jméno hráče:");
-        game.getPlayer().setName(sc.nextLine());
-        System.out.println("\n");
-        printOutFile("introduction.txt");
+        if (game.getPlayer().getName() == null || game.getPlayer().getName().isEmpty()) {
+            System.out.print("Zadej jméno hráče:");
+            game.getPlayer().setName(sc.nextLine());
+            System.out.println("\n");
+            printOutFile("introduction.txt");
+        } else {
+            System.out.println("\nVítej zpět, " + game.getPlayer().getName() + "!\n");
+        }
 
         boolean exit = false;
         do {
             System.out.print(">>");
+            if (!sc.hasNextLine()) break;
             String read = sc.nextLine();
-            //Pouzito ChatGPT pro upravu inputu.
-            //-----
+
             read = Normalizer.normalize(read, Normalizer.Form.NFD)
                     .replaceAll("\\p{M}", "")
                     .replaceAll("\\s+", "")
                     .toLowerCase();
-            //-----
+
             String result = commandManager.execute(read);
             exit = commandManager.exit(read);
             if (result == null) {
@@ -67,8 +69,20 @@ public class Console {
      * adds commands to hashMap.
      */
     public Console() {
-        game = new Game();
-        sc = new Scanner(System.in);
+        this.sc = new Scanner(System.in);
+        File saveFile = new File(SAVE_FILE);
+
+        if (saveFile.exists()) {
+            System.out.print("Nalezen uložený postup. Chceš v něm pokračovat? (ano/ne): ");
+            String choice = sc.nextLine().toLowerCase();
+            if (choice.contains("a") || choice.contains("ano")) {
+                this.game = Game.load(SAVE_FILE);
+            }
+        }
+
+        if (this.game == null) {
+            this.game = new Game();
+        }
 
         this.commandManager = new CommandManager();
         commandManager.register("hledatokolo", new LookAroundCommand(game));
@@ -80,6 +94,7 @@ public class Console {
         commandManager.register("truhla", new ChestCommand(game));
         commandManager.register("otazka", new QuestionCommand(game));
 
+        commandManager.register("ulozit", new SaveCommand(game, SAVE_FILE));
     }
 
     /**
@@ -89,10 +104,16 @@ public class Console {
      */
     private void printOutFile(String fileName) {
         try (InputStream is = getClass().getClassLoader().getResourceAsStream(fileName)) {
-            if (is == null) {
-                throw new RuntimeException("Soubor nebyl nalezen v JARu: " + fileName);
+            InputStream stream = is;
+            if (stream == null) {
+                File localFile = new File("src/main/resources/" + fileName);
+                if (localFile.exists()) {
+                    stream = new FileInputStream(localFile);
+                } else {
+                    return;
+                }
             }
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
                 String line;
                 while ((line = br.readLine()) != null) {
                     System.out.println(line);
